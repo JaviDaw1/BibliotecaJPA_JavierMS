@@ -37,7 +37,7 @@ public class BibliotecaMenu {
 
         if (usuario != null) {
             if (usuario.getPenalizacionHasta() != null && usuario.getPenalizacionHasta().isAfter(LocalDate.now())) {
-                System.out.println("Usted tiene una penalización activa hasta: " + usuario.getPenalizacionHasta());
+                System.out.println("Usted tiene una penalización hasta: " + usuario.getPenalizacionHasta());
                 return;
             }
 

@@ -33,10 +33,6 @@ public class EjemplarService {
         return ejemplarDAO.buscar(id);
     }
 
-    public long obtenerStockPorEstado(String estado) {
-        return ejemplarDAO.contarPorEstado(estado);
-    }
-
     public void eliminar(Ejemplar ejemplar) {
         ejemplarDAO.eliminar(ejemplar.getId());
         sincronizar();

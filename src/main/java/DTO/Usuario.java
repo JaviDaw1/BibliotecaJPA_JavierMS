@@ -102,6 +102,14 @@ public class Usuario {
         this.penalizacionHasta = penalizacionHasta;
     }
 
+/*    public void agregarPenalizacion(long diasPenalizacion) {
+        if (this.penalizacionHasta == null || this.penalizacionHasta.isBefore(LocalDate.now())) {
+            this.penalizacionHasta = LocalDate.now().plusDays(diasPenalizacion);
+        } else {
+            this.penalizacionHasta = this.penalizacionHasta.plusDays(diasPenalizacion);
+        }
+    }*/
+
     @Override
     public String toString() {
         return "Usuario{" +

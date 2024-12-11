@@ -32,12 +32,6 @@ public class EjemplarDAO {
         return em.find(Ejemplar.class, id);
     }
 
-    public long contarPorEstado(String estado) {
-        return em.createQuery("SELECT COUNT(e) FROM Ejemplar e WHERE e.estado = :estado", Long.class)
-                .setParameter("estado", estado)
-                .getSingleResult();
-    }
-
     public void eliminar(int id) {
         em.getTransaction().begin();
         Ejemplar p = buscar(id);

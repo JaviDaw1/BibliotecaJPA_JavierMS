@@ -10,6 +10,7 @@ import Service.PrestamoService;
 import Service.UsuarioService;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class UsuarioAdminMenu {
@@ -279,17 +280,18 @@ public class UsuarioAdminMenu {
         scanner.nextLine();
         System.out.print("Ingrese Fecha de Inicio (YYYY-MM-DD): ");
         String fechaInicio = scanner.nextLine();
-        System.out.print("Ingrese Fecha de Devolución (YYYY-MM-DD): ");
-        String fechaDevolucion = scanner.nextLine();
 
         Prestamo nuevoPrestamo = new Prestamo();
         nuevoPrestamo.setUsuarioId(usuarioId, usuarioService);
         nuevoPrestamo.setEjemplarId(ejemplarId, ejemplarService);
-        nuevoPrestamo.setFechaInicio(Date.valueOf(fechaInicio).toLocalDate());
-        nuevoPrestamo.setFechaDevolucion(Date.valueOf(fechaDevolucion).toLocalDate());
+        nuevoPrestamo.setFechaInicio(LocalDate.parse(fechaInicio));
 
-        prestamoService.insrtarPrestamo(nuevoPrestamo);
-        System.out.println("Préstamo creado exitosamente.");
+        try {
+            prestamoService.insertarPrestamo(nuevoPrestamo);
+            System.out.println("Préstamo creado exitosamente.");
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error al crear el préstamo: " + e.getMessage());
+        }
     }
 
     private void actualizarPrestamo(Scanner scanner) {

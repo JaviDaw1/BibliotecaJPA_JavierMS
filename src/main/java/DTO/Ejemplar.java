@@ -65,10 +65,6 @@ public class Ejemplar {
         this.estado = estado;
     }
 
-    public long contarPorEstado(String estado, EjemplarService ejemplarService) {
-        return ejemplarService.obtenerStockPorEstado(estado);
-    }
-
     @Override
     public String toString() {
         return "Ejemplar{" +
