@@ -1,3 +1,5 @@
+package Menu;
+
 import DTO.Ejemplar;
 import DTO.Libro;
 import DTO.Prestamo;
@@ -10,21 +12,20 @@ import Service.UsuarioService;
 import java.sql.Date;
 import java.util.Scanner;
 
-public class BibliotecaMenu {
+public class UsuarioAdminMenu {
     private final EjemplarService ejemplarService;
     private final LibroService libroService;
     private final PrestamoService prestamoService;
     private final UsuarioService usuarioService;
 
-    public BibliotecaMenu(EjemplarService ejemplarService, LibroService libroService, PrestamoService prestamoService, UsuarioService usuarioService) {
+    public UsuarioAdminMenu(EjemplarService ejemplarService, LibroService libroService, PrestamoService prestamoService, UsuarioService usuarioService) {
         this.ejemplarService = ejemplarService;
         this.libroService = libroService;
         this.prestamoService = prestamoService;
         this.usuarioService = usuarioService;
     }
 
-    // Menu principal
-    public void mostrarMenuPrincipal() {
+    public void mostrarMenu() {
         Scanner scanner = new Scanner(System.in);
         int opcion;
 
@@ -47,8 +48,6 @@ public class BibliotecaMenu {
                 default -> System.out.println("Opción inválida. Intente de nuevo.");
             }
         } while (opcion != 5);
-
-        scanner.close();
     }
 
     // Menu Ejemplares
@@ -152,7 +151,6 @@ public class BibliotecaMenu {
             System.out.println("No hay ejemplares disponibles para el libro con ISBN: " + isbn);
         }
     }
-
 
 
     // Menu Libros
@@ -324,7 +322,6 @@ public class BibliotecaMenu {
             System.out.println("Préstamo no encontrado.");
         }
     }
-
 
 
     // Menu Usuarios

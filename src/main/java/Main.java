@@ -2,6 +2,7 @@ import DAO.EjemplarDAO;
 import DAO.LibroDAO;
 import DAO.PrestamoDAO;
 import DAO.UsuarioDAO;
+import Menu.BibliotecaMenu;
 import Service.EjemplarService;
 import Service.LibroService;
 import Service.PrestamoService;
@@ -26,7 +27,7 @@ public class Main {
         UsuarioService usuarioService= new UsuarioService(usuarioDAO);
 
         BibliotecaMenu menu = new BibliotecaMenu(ejemplarService, libroService, prestamoService, usuarioService);
-        menu.mostrarMenuPrincipal();
+        menu.iniciarSesion();
 
         em.close();
         emf.close();
